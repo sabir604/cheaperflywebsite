@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@import "flatpickr/dist/flatpickr.min.css";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+.hero-gradient {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.about-prose h2 {
+  @apply text-xl font-semibold text-zinc-900 mt-0 mb-2;
+}
+
+.about-prose p {
+  @apply text-zinc-600 leading-relaxed mb-4 last:mb-0;
+}
+
+.about-prose ul {
+  @apply list-disc pl-6 text-zinc-600 space-y-1 mb-4;
+}
+
+.about-prose a {
+  @apply text-indigo-600 hover:underline;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.bc-card {
+  --card-accent: #6366f1;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bc-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 48px -8px color-mix(in srgb, var(--card-accent) 28%, transparent);
+}
+
+.bc-card:hover .bc-icon-ring {
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--card-accent) 18%, transparent);
+}
+
+.bc-icon-ring {
+  transition: box-shadow 0.3s ease;
+}
+
+.bc-icon-wrap {
+  animation: floatIcon 3s ease-in-out infinite;
+}
